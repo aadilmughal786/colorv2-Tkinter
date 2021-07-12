@@ -16,7 +16,7 @@ bgb = "blue"
 don = StringVar()
 don2 = StringVar()
 
-#--------------------- function ----------------------
+#--------------------- functions ----------------------
 
 def scale_effectR(value):
     labR["bg"] = f"#{int(value):02x}0000"
@@ -47,7 +47,7 @@ def scale_effectB(value):
 
 
 
-#------------------menu bar ---------------------
+#------------------main label for compound color ---------------------
 lab0 = Label(root,width = 10,height = 3)
 lab0.grid(row = 0,column = 0,sticky = "ewns")
 
@@ -59,7 +59,7 @@ labmain.grid(row = 1,column = 1,columnspan = 5,sticky = "ewns")
 
 lab0 = Label(root,height = 2)
 lab0.grid(row = 2,column = 0,sticky = "ewns")
-#--------------------- three comp ---------------------
+#--------------------- three RGB label-------------------
 labR = Label(root,width = 10,height = 5,font = "bold 12",text = "R",borderwidth=2, relief="solid",bg = bgr)
 labR.grid(row = 3,column = 1,sticky = "ewns")
 
@@ -69,7 +69,7 @@ labG.grid(row = 3,column = 3,sticky = "ewns")
 labB = Label(root,width = 10,height = 5,font = "bold 12",text = "B",borderwidth=2, relief="solid",bg = bgb)
 labB.grid(row = 3,column = 5,sticky = "ewns")
 
-# ------------------- label scale -----------------------
+# -------------------label and scalbar from 0 to 255 -----------------------
 
 lab0 = Label(root,width = 10,height = 2)
 lab0.grid(row = 4,column = 0,sticky = "ewns")
@@ -91,7 +91,7 @@ labBS.grid(row = 7,column = 1,sticky = "ewns",columnspan = 2,pady = (15,0))
 
 SB = Scale( root, variable = vsb,from_ = 0, to = 255,orient = HORIZONTAL,command =lambda x:scale_effectB(x)) 
 SB.grid(row = 7,column = 3,columnspan = 3,sticky = "ewns")
-#------------------------ discript --------------------------------------
+#------------------------ color discription --------------------------------------
 lab0 = Label(root,width = 10,height = 2)
 lab0.grid(row = 8,column = 0,sticky = "ewns")
 
@@ -101,13 +101,14 @@ ent0.grid(row = 9,column = 1,columnspan = 5,sticky = "ewns")
 lab0 = Label(root,width = 10,height = 1)
 lab0.grid(row = 10,column = 0,sticky = "ewns")
 
+# name of devloper , text color same as color of main label
 labname = Label(root,text = "Devloper : Aadil Mugal , version : v1.0",font = (("Times New Roman"), 15))
 labname.grid(row = 11,column = 1,sticky = "ewns",columnspan = 5)
 
 lab0 = Label(root,width = 10,height = 4)
 lab0.grid(row = 12,column = 0,sticky = "ewns")
 
-#--------------------------------------------------------
+#------------------------ for initial main label background --------------------------------
 labmain["bg"] = mainrgb.get()
-#------------------- event loop -------------------
+#------------------- event loop(for event handling  -------------------
 root.mainloop()
